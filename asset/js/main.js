@@ -42,33 +42,10 @@ const team = [
 ]
 //console.log(team);
 
-/*
-FUNZIONI MARKUP
-const member = {
-        nome : newName + ' ' + newLastName ,
-        ruolo : newJob ,
-        foto : 'daniel-plebani.jpg'
-    };
 
-function createMemberCard(member) {
-    return `
-    <div class="col-sm-4 col-md-3 m-2">
-        <div class="card">
-            <img src="/asset/img/${member.foto}" class="card-img-top">
-            <div class="card-body">
-                <h4>${member.nome}</h4>
-                <p>${member.ruolo}</p>
-            </div>
-        </div>
-    </div>`;
-}
 
-function addNewMarkup(markup) {
-    const container = document.querySelector('.container');
-    container.insertAdjacentHTML('beforeend', markup);
-}
-addNewMarkup(createMemberCard(member));
-*/
+
+
 
 //stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 for (let i = 0; i < team.length; i++) {
@@ -78,7 +55,23 @@ for (let i = 0; i < team.length; i++) {
     //console.log(member.ruolo);
     //console.log(member.foto);
 
-    createMemberCard(member);
+    function createMemberCard(member) {
+        return `
+        <div class="col-sm-4 col-md-3 m-2">
+            <div class="card">
+                <img src="/asset/img/${member.foto}" class="card-img-top">
+                <div class="card-body">
+                    <h4>${member.nome}</h4>
+                    <p>${member.ruolo}</p>
+                </div>
+            </div>
+        </div>`;
+    }
+    
+    function addNewMarkup(markup) {
+        const container = document.querySelector('.container');
+        container.insertAdjacentHTML('beforeend', markup);
+    }
     addNewMarkup(createMemberCard(member));
 }
 
