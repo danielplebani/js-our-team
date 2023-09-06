@@ -66,8 +66,11 @@ for (let i = 0; i < team.length; i++) {
     </div>`
 
     //4-inserisco costante markup nel DOM
-    const container = document.querySelector('.container');
-    container.insertAdjacentHTML('beforeend', markup);
+    function addNewMarkup(markup) {
+        const container = document.querySelector('.container');
+        container.insertAdjacentHTML('beforeend', markup);
+    }
+    addNewMarkup(markup);
 }
 
 //bonus
@@ -105,7 +108,7 @@ newCard.addEventListener('click', function(){
             </div>
         </div>`
     
-        const container = document.querySelector('.container');
-        container.insertAdjacentHTML('beforeend', markup);
+        
+       addNewMarkup(markup);
     }
 });
