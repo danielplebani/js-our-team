@@ -75,8 +75,8 @@ for (let i = 0; i < team.length; i++) {
 
 //bonus
 const newCard = document.querySelector('button');
-newCard.addEventListener('click', function(){
 
+newCard.addEventListener('click', function(){
     const newName = document.getElementById('newName').value;
     const newLastName = document.getElementById('newLastName').value;
     const newJob = document.getElementById('newJob').value;
@@ -88,14 +88,9 @@ newCard.addEventListener('click', function(){
     };
     //console.log(member);
 
-    team.push(member);
+    createMemberCard(member);
 
-    for (let i = 0; i < 1; i++) {
+    const markup = createMemberCard(member);
 
-        createMemberCard(member);
-
-        const markup = createMemberCard(member);
-
-        addNewMarkup(markup);
-    }
+    addNewMarkup(markup);
 });
