@@ -92,14 +92,8 @@ newCard.addEventListener('click', function(){
     team.push(newMember);
 
     for (let i = 0; i < 1; i++) {
-        const member = team[i];
-        //console.log(member);
-        console.log(member.nome);
-        console.log(member.ruolo);
-        console.log(member.foto);
-    
+
         //stampo le stesse informazioni sul DOM 
-        //3-costruzione markup card con valori del team
         const markup = 
         `<div class="col-sm-4 col-md-3 m-2">
             <div class="card">
@@ -111,7 +105,6 @@ newCard.addEventListener('click', function(){
             </div>
         </div>`
     
-        //4-inserisco costante markup nel DOM
         const container = document.querySelector('.container');
         container.insertAdjacentHTML('beforeend', markup);
     }
