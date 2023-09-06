@@ -3,7 +3,6 @@ Utilizzando i dati forniti, creare un array di oggetti per rappresentare i membr
 */
 
 //creo l'array con dentro ogni persona e lo loggo in console
-//1-definizione dell’array del team
 const team = [
     {
         nome : 'Wayne Barnett' ,
@@ -41,31 +40,31 @@ const team = [
         foto : 'barbara-ramos-graphic-designer.jpg'
     } ,
 ]
-console.log(team);
+//console.log(team);
 
 //stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
-//2-for che si ripete per lunghezzza array
 for (let i = 0; i < team.length; i++) {
     const member = team[i];
     //console.log(member);
-    console.log(member.nome);
-    console.log(member.ruolo);
-    console.log(member.foto);
+    //console.log(member.nome);
+    //console.log(member.ruolo);
+    //console.log(member.foto);
 
-    //stampo le stesse informazioni sul DOM 
-    //3-costruzione markup card con valori del team
-    const markup = 
-    `<div class="col-sm-4 col-md-3 m-2">
-        <div class="card">
-            <img src="/asset/img/${member.foto}" class="card-img-top">
-            <div class="card-body">
-                <h4>${member.nome}</h4>
-                <p>${member.ruolo}</p>
+    function createMemberCard(member) {
+        return `
+        <div class="col-sm-4 col-md-3 m-2">
+            <div class="card">
+                <img src="/asset/img/${member.foto}" class="card-img-top">
+                <div class="card-body">
+                    <h4>${member.nome}</h4>
+                    <p>${member.ruolo}</p>
+                </div>
             </div>
-        </div>
-    </div>`
+        </div>`;
+    }
 
-    //4-inserisco costante markup nel DOM
+    const markup = createMemberCard(member);
+
     function addNewMarkup(markup) {
         const container = document.querySelector('.container');
         container.insertAdjacentHTML('beforeend', markup);
@@ -73,42 +72,30 @@ for (let i = 0; i < team.length; i++) {
     addNewMarkup(markup);
 }
 
+
 //bonus
 const newCard = document.querySelector('button');
-//5-aggiunge funzione che si attiva al click del pulsante add
 newCard.addEventListener('click', function(){
 
-    //6-collego i valori scritti nel form
     const newName = document.getElementById('newName').value;
     const newLastName = document.getElementById('newLastName').value;
     const newJob = document.getElementById('newJob').value;
 
-    //7-creo un nuovo membro dell'array in una costante
-    const newMember = {
+    const member = {
         nome : newName + ' ' + newLastName ,
         ruolo : newJob ,
         foto : 'daniel-plebani.jpg'
     };
-    console.log(newMember);
+    //console.log(member);
 
-    //8-pusho la costante nell'array team
-    team.push(newMember);
+    team.push(member);
 
     for (let i = 0; i < 1; i++) {
 
-        //stampo le stesse informazioni sul DOM 
-        const markup = 
-        `<div class="col-sm-4 col-md-3 m-2">
-            <div class="card">
-                <img src="/asset/img/${newMember.foto}" class="card-img-top">
-                <div class="card-body">
-                    <h4>${newMember.nome}</h4>
-                    <p>${newMember.ruolo}</p>
-                </div>
-            </div>
-        </div>`
-    
-        
-       addNewMarkup(markup);
+        createMemberCard(member);
+
+        const markup = createMemberCard(member);
+
+        addNewMarkup(markup);
     }
 });
