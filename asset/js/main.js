@@ -38,7 +38,7 @@ const team = [
         nome : 'Barbara Ramos' ,
         ruolo : 'Graphic Designer' ,
         foto : 'barbara-ramos-graphic-designer.jpg'
-    }
+    } ,
 ]
 //console.log(team);
 
@@ -65,3 +65,21 @@ for (let i = 0; i < team.length; i++) {
     const container = document.querySelector('.container');
     container.insertAdjacentHTML('beforeend', markup);
 }
+
+//bonus
+const newCard = document.querySelector('button');
+newCard.addEventListener('click', function(){
+
+    const newName = document.getElementById('newName');
+    const newLastName = document.getElementById('newLastName');
+    const newJob = document.getElementById('newJob');
+
+    const newMember = {
+        nome : newName.value + ' ' + newLastName.value ,
+        ruolo : newJob.value ,
+        foto : 'wayne-barnett-founder-ceo.jpg'
+    };
+    console.log(newMember);
+
+    team.push(newMember);
+})
