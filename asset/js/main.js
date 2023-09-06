@@ -3,6 +3,7 @@ Utilizzando i dati forniti, creare un array di oggetti per rappresentare i membr
 */
 
 //creo l'array con dentro ogni persona e lo loggo in console
+//1-definizione dell’array del team
 const team = [
     {
         nome : 'Wayne Barnett' ,
@@ -40,9 +41,10 @@ const team = [
         foto : 'barbara-ramos-graphic-designer.jpg'
     } ,
 ]
-//console.log(team);
+console.log(team);
 
 //stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
+//2-for che si ripete per lunghezzza array
 for (let i = 0; i < team.length; i++) {
     const member = team[i];
     //console.log(member);
@@ -51,6 +53,7 @@ for (let i = 0; i < team.length; i++) {
     console.log(member.foto);
 
     //stampo le stesse informazioni sul DOM 
+    //3-costruzione markup card con valori del team
     const markup = 
     `<div class="col-sm-4 col-md-3 m-2">
         <div class="card">
@@ -62,24 +65,29 @@ for (let i = 0; i < team.length; i++) {
         </div>
     </div>`
 
+    //4-inserisco costante markup nel DOM
     const container = document.querySelector('.container');
     container.insertAdjacentHTML('beforeend', markup);
 }
 
 //bonus
 const newCard = document.querySelector('button');
+//5-aggiunge funzione che si attiva al click del pulsante add
 newCard.addEventListener('click', function(){
 
-    const newName = document.getElementById('newName');
-    const newLastName = document.getElementById('newLastName');
-    const newJob = document.getElementById('newJob');
+    //6-collego i valori scritti nel form
+    const newName = document.getElementById('newName').value;
+    const newLastName = document.getElementById('newLastName').value;
+    const newJob = document.getElementById('newJob').value;
 
+    //7-creo un nuovo membro dell'array in una costante
     const newMember = {
-        nome : newName.value + ' ' + newLastName.value ,
-        ruolo : newJob.value ,
-        foto : 'wayne-barnett-founder-ceo.jpg'
+        nome : newName + ' ' + newLastName ,
+        ruolo : newJob ,
+        foto : 'daniel-plebani.jpg'
     };
     console.log(newMember);
 
+    //8-pusho la costante nell'array team
     team.push(newMember);
-})
+});
