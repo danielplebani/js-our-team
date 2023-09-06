@@ -43,8 +43,6 @@ const team = [
 //console.log(team);
 
 //stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
-const container = document.querySelector('.container');
-
 for (let i = 0; i < team.length; i++) {
     const member = team[i];
     //console.log(member);
@@ -52,7 +50,7 @@ for (let i = 0; i < team.length; i++) {
     console.log(member.ruolo);
     console.log(member.foto);
 
-    //stampo le stesse informazioni su DOM 
+    //stampo le stesse informazioni sul DOM 
     const markup = 
     `<div class="col-sm-4 col-md-3 m-2">
         <div class="card">
@@ -64,7 +62,6 @@ for (let i = 0; i < team.length; i++) {
         </div>
     </div>`
 
-    container.insertAdjacentHTML('beforeend', markup)
+    const container = document.querySelector('.container');
+    container.insertAdjacentHTML('beforeend', markup);
 }
-
-
