@@ -43,28 +43,33 @@ const team = [
 //console.log(team);
 
 //stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
+//FUNCTIONS
+const createMemberCard = function(member) {
+    return `
+    <div class="col-sm-4 col-md-3 m-2">
+        <div class="card">
+            <img src="/asset/img/${member.foto}" class="card-img-top">
+            <div class="card-body">
+                <h4>${member.nome}</h4>
+                <p>${member.ruolo}</p>
+            </div>
+        </div>
+    </div>`;
+};
+
+const addNewMarkup = function (markup) {
+    const container = document.querySelector('.container');
+    container.insertAdjacentHTML('beforeend', markup);
+}
+
 for (let i = 0; i < team.length; i++) {
     const member = team[i];
     //console.log(member.nome, member.ruolo, member.foto);
 
     //creo il markup e lo pusho in pagina
-    function createMemberCard(member) {
-        return `
-        <div class="col-sm-4 col-md-3 m-2">
-            <div class="card">
-                <img src="/asset/img/${member.foto}" class="card-img-top">
-                <div class="card-body">
-                    <h4>${member.nome}</h4>
-                    <p>${member.ruolo}</p>
-                </div>
-            </div>
-        </div>`;
-    }
+    createMemberCard;
+    addNewMarkup;
     
-    function addNewMarkup(markup) {
-        const container = document.querySelector('.container');
-        container.insertAdjacentHTML('beforeend', markup);
-    }
     addNewMarkup(createMemberCard(member));
 }
 
@@ -84,6 +89,8 @@ newCard.addEventListener('click', function(){
     };
     //console.log(member);
 
-    createMemberCard(member);
+    createMemberCard;
+    addNewMarkup;
+    
     addNewMarkup(createMemberCard(member));
 });
