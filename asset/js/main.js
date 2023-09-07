@@ -42,19 +42,12 @@ const team = [
 ]
 //console.log(team);
 
-
-
-
-
-
 //stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 for (let i = 0; i < team.length; i++) {
     const member = team[i];
-    //console.log(member);
-    //console.log(member.nome);
-    //console.log(member.ruolo);
-    //console.log(member.foto);
+    //console.log(member.nome, member.ruolo, member.foto);
 
+    //creo il markup e lo pusho in pagina
     function createMemberCard(member) {
         return `
         <div class="col-sm-4 col-md-3 m-2">
@@ -77,8 +70,8 @@ for (let i = 0; i < team.length; i++) {
 
 
 //bonus
+//Aggiungo un form in pagina per permettere all’utente di aggiungere nuovi membri del team: cliccando sul pulsante “add” viene creato un nuovo oggetto, il quale viene inserito nell’array iniziale e viene stampata una nuova card con tutte le informazioni inserite dall’utente.
 const newCard = document.querySelector('button');
-
 newCard.addEventListener('click', function(){
     const newName = document.getElementById('newName').value;
     const newLastName = document.getElementById('newLastName').value;
